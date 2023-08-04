@@ -59,6 +59,10 @@ while not done: # 게임이 진행되는 동안 계속 반복 작업을 하는 w
             elif event.key == pygame.K_DOWN:
                 keyboard_dy = -3
         elif event.type == pygame.KEYUP:
+            if event.type == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                keyboard_dx = 0
+            elif event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                keyboard_dy = 0
 
     # 게임 로직 구간
 
