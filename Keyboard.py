@@ -10,6 +10,7 @@ WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
+GRAY = (200, 200, 200)
 
 # pygame 초기화
 pygame.init()
@@ -55,23 +56,28 @@ while not done: # 게임이 진행되는 동안 계속 반복 작업을 하는 w
             elif event.key == pygame.K_RIGHT:
                 keyboard_dx = 3
             elif event.key == pygame.K_UP:
-                keyboard_dy = 3
-            elif event.key == pygame.K_DOWN:
                 keyboard_dy = -3
+            elif event.key == pygame.K_DOWN:
+                keyboard_dy = 3
         elif event.type == pygame.KEYUP:
-            if event.type == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 keyboard_dx = 0
             elif event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                 keyboard_dy = 0
 
     # 게임 로직 구간
+    # 키보드 이미지의 위치 변경
+    keyboard_x += keyboard_dx
+    keyboard_y += keyboard_dy
 
     # 게임 삭제 구간
 
     # 스크린 채우기
-    screen.fill(WHITE)
+    screen.fill(GRAY)
 
     # 화면 그리기 구간
+    # 키보드 이미지 그리기
+    screen.blit(keyboard_image, [keyboard_x, keyboard_y])
 
     # 화면 업데이트
     pygame.display.flip()
