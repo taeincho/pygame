@@ -72,3 +72,8 @@ while not done: # 게임이 진행되는 동안 계속 반복 작업을 하는 w
 
 # 게임 종료
 pygame.quit()
+
+
+
+
+# Github is Running.
