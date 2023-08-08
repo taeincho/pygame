@@ -1,4 +1,5 @@
 @echo off
+pip install pygame
 cls
 title Pingpong Launcher
 color 0a
